@@ -89,6 +89,12 @@ jobs:
         if: ${{ runner.os == 'Windows' }}
         uses: ilammy/msvc-dev-cmd@v1
 
+      - name: DEBUG
+        run: clang --version
+
+      - name: DEBUG2
+        run: clang-cl --version
+
       - name: Hackery due Shiboken hardcoded paths
         if: ${{ runner.os == 'Linux' }}
         run: |

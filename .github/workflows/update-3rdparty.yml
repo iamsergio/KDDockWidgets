@@ -66,18 +66,11 @@ jobs:
         run: |
           LATEST_NLOHMANN=`./ci-release-tools/src/gh_utils.py --get-latest-release=nlohmann/json`
           NEW_BRANCH_NAME=work/bump_nlohmann_${LATEST_NLOHMANN}
-          echo a1
           wget https://github.com/nlohmann/json/releases/download/${LATEST_NLOHMANN}/json.hpp -O src/3rdparty/nlohmann/nlohmann/json.hpp
-          echo a2
           echo $LATEST_NLOHMANN > src/3rdparty/nlohmann/nlohmann/sha1.txt
-          echo a3
           git add src/3rdparty/nlohmann/nlohmann/
-          echo a4
 
-          git diff --staged --quiet
-          echo $?
-
-          git diff --staged --quiet || exit 0
+          ! git diff --staged --quiet || exit 0
 
           git checkout -B ${NEW_BRANCH_NAME}
           git add src/3rdparty/nlohmann/

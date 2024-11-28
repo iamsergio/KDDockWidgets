@@ -68,6 +68,7 @@ jobs:
           NEW_BRANCH_NAME=work/bump_nlohmann_${LATEST_NLOHMANN}
           wget https://github.com/nlohmann/json/releases/download/${LATEST_NLOHMANN}/json.hpp -O src/3rdparty/nlohmann/nlohmann/json.hpp
           echo $LATEST_NLOHMANN > src/3rdparty/nlohmann/nlohmann/sha1.txt
+          git add src/3rdparty/nlohmann/nlohmann/sha1.txt
 
           if git diff --quiet src/3rdparty/nlohmann ; then
             exit 0

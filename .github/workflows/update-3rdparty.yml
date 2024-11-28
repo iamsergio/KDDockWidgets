@@ -49,7 +49,7 @@ jobs:
           git diff --quiet src/3rdparty/kdbindings
           echo $?
           if git diff --quiet src/3rdparty/kdbindings ; then
-            exit(0)
+            exit 0
           fi
 
             (cd KDBindings/ && git rev-parse HEAD) > src/3rdparty/kdbindings/sha1.txt && \

@@ -8,10 +8,11 @@ on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
+  push:
 
 jobs:
   update:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
 
     steps:
       - name: Install dependencies on Ubuntu

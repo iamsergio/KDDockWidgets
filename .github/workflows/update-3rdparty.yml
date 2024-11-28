@@ -70,7 +70,7 @@ jobs:
           echo $LATEST_NLOHMANN > src/3rdparty/nlohmann/nlohmann/sha1.txt
           git add src/3rdparty/nlohmann/nlohmann/
 
-          if git diff --staged --quiet || exit 0
+          git diff --staged --quiet || exit 0
 
           if git diff --quiet src/3rdparty/nlohmann ; then
             exit 0

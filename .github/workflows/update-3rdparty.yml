@@ -48,7 +48,10 @@ jobs:
           rm src/3rdparty/kdbindings/CMakeLists.txt
           git diff --quiet src/3rdparty/kdbindings
           echo $?
-          git diff --quiet src/3rdparty/kdbindings || \
+          if git diff --quiet src/3rdparty/kdbindings ; then
+            exit(0)
+          fi
+
             (cd KDBindings/ && git rev-parse HEAD) > src/3rdparty/kdbindings/sha1.txt && \
             NEW_BRANCH_NAME=work/bump_kdbindings_`cat src/3rdparty/kdbindings/sha1.txt` && \
             cat src/3rdparty/kdbindings/sha1.txt && \

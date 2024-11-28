@@ -72,10 +72,6 @@ jobs:
 
           git diff --staged --quiet || exit 0
 
-          if git diff --quiet src/3rdparty/nlohmann ; then
-            exit 0
-          fi
-
           git checkout -B ${NEW_BRANCH_NAME}
           git add src/3rdparty/nlohmann/
           git commit -m "Bump 3rdparty/nlohmann"

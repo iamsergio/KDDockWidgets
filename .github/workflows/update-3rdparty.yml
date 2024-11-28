@@ -49,6 +49,7 @@ jobs:
           git diff --quiet src/3rdparty/kdbindings || \
             (cd KDBindings/ && git rev-parse HEAD) > src/3rdparty/kdbindings/sha1.txt && \
             NEW_BRANCH_NAME=work/bump_kdbindings_`cat src/3rdparty/kdbindings/sha1.txt` && \
+            cat src/3rdparty/kdbindings/sha1.txt && \
             git checkout -B ${NEW_BRANCH_NAME} && \
             git add src/3rdparty/kdbindings/ && \
             git commit -m "Bump 3rdparty/kdbindings" && \
